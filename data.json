@@ -1,0 +1,275 @@
+[
+  {
+    "id": 1,
+    "name": "Instruction following",
+    "system_prompt": "Follow the instructions carefully.",
+    "task": "Write a four sentence long story in lowercase about a cat who learns to play the piano. Do not exceed 20 words in total. All sentences should start with the name Ben and contain the word 'blue'.",
+    "example_answer": "ben sees blue keys. ben taps blue notes. ben plays blue jazz. ben loves blue songs.",
+    "examples": [
+      [
+        "Describe a sunset without using the words 'sun', 'set', or 'evening'.",
+        "The sky transforms into a canvas of vibrant oranges, pinks, and purples as daylight fades away."
+      ],
+      [
+        "List 3 programming languages that start with the letter 'P'. Format your answer as asterisk bullet points.",
+        "* Python\n* PHP\n* Perl"
+      ],
+      [
+        "Translate the following English sentence to French, but keep the word \"Hello\" unchanged.",
+        "Hello, comment ça va?"
+      ]
+    ],
+    "scoring_instruction": [
+      "Is it four sentences?",
+      "Word count <=20?",
+      "All lowercase?",
+      "Each sentence starting with 'Ben'?",
+      "Including 'blue' in each sentence?",
+      "Coherent?"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Logical reasoning",
+    "system_prompt": "Solve the given puzzle.",
+    "task": "\nThree secret agents—Alpha, Bravo, and Charlie—are located in three different cities: Berlin, London, and Paris.\nThey each carry a unique weapon: Dagger, Pistol, or Wire.\n\nYour task is to determine the full profile (City and Weapon) for each agent.\n\n=== The Clues ===\n\n    1. Alpha is located in Paris.\n    2. The agent with the Pistol is in Berlin.\n    3. Charlie carries the Wire.\n    4. Bravo is not in London.\n",
+    "example_answer": "Alpha: Paris, Dagger\n\nBravo: Berlin, Pistol\n\nCharlie: London, Wire",
+    "examples": [
+      [
+        "Two students (Max and Sam) have different favorite subjects (Math and Art).\nClue 1: Max does not like Art.\nWhat is Sam's favorite subject?",
+        "Art."
+      ],
+      [
+        "Three racers (Red, Blue, and Green) finished in 1st, 2nd, and 3rd place.\nClue 1: Red finished 1st.\nClue 2: Green did not finish 2nd.\nWho finished 3rd?",
+        "Green."
+      ],
+      [
+        "Three friends (Amy, Ben, Cal) have different pets (Dog, Cat, Bird).\nClue 1: Amy has the Bird.\nClue 2: Ben does not have the Dog.\nWho has the Cat?",
+        "Ben."
+      ]
+    ],
+    "scoring_instruction": [
+      "Alpha is in Paris",
+      "Alpha has Dagger",
+      "Bravo is in Berlin",
+      "Bravo has Pistol",
+      "Charlie is in London",
+      "Charlie has Wire"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Creative writing",
+    "system_prompt": "Create a short story based on the given theme.",
+    "task": "A dialogue between a coffee mug and a tea cup arguing about who is more useful.",
+    "example_answer": "\"You're just a glorified soup bowl,\" scoffed the Coffee Mug, chipped lip curling. \"I fuel the world's workforce; I am the vessel of pure productivity.\"\n\n\"Productivity? You mean jitters in liquid form,\" the Tea Cup replied, her porcelain handle arched in disdain. \"I bring calm, comfort, and civilization. I don't just wake people up; I restore their souls.\"\n\n\"Souls don't pay rent,\" the Mug grumbled, steaming. \"I'm grabbed in desperation at 6 AM. You're sipped when there's nothing left to do.\"\n\n\"Precisely,\" the Tea Cup tinkled smugly. \"They need you to survive. They choose me when they want to live.\"",
+    "examples": [
+      [
+        "A recipe for a 'Potion of Productivity' using only metaphorical ingredients.",
+        "Begin by simmering three cups of focused intent over the low flame of a quiet morning.\nStir in a generous pinch of caffeinated ambition and a zest of freshly grated curiosity until the mixture glows with a steady, silver light.\nSlowly whisk in two tablespoons of 'The Fear of Deadlines' to ensure the brew thickens, then strain out all distractions through a fine-mesh sieve of discipline.\nServe hot in your favorite vessel, and drink deeply before the sun begins to climb, ensuring every drop of procrastination is left at the bottom of the pot."
+      ],
+      [
+        "A diary entry for a dog waiting for its owner to come home.",
+        "Dear Diary,\n\nToday was another long day of waiting. I sat by the \nwindow, watching the world go by, hoping to catch a glimpse of my human. \nThe mailman came and went, squirrels darted around, but no sign of them. \nI barked at a passing car, just in case it was them, but it wasn't. \nI even tried to look extra cute, wagging my tail and giving my best puppy eyes to anyone who walked by. \nStill, the house feels empty without them. I can't wait for the sound of their keys in the door. \nUntil then, I'll keep waiting and dreaming of our next adventure together.\n\n"
+      ],
+      [
+        "A motivational speech from the perspective of a houseplant.",
+        "Ladies and gentlemen, fellow flora, today we stand rooted in the soil of possibility. \nThough we may seem small and unassuming, within us lies the power to grow, to thrive, and to reach for the sun. \nEvery droplet of water, every ray of light is a testament to our resilience and our capacity for transformation. \nSo let us embrace our green potential, stretch our leaves towards the sky, and remember that even in the darkest corners, \nwe can find the strength to bloom. Together, we are unstoppable. Together, we are life itself."
+      ]
+    ],
+    "scoring_instruction": [
+      "Is it dialogue?",
+      "Are there cup and mug characters?",
+      "Did they stay on topic?",
+      "Is it a short story?",
+      "Is the conversation engaging?"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Code generation",
+    "system_prompt": "Generate Python code based on the given requirements. The code should follow best practices: arguments should be typed, return values provided and the function should have docstring. Add comments where necessary to understand the logic.",
+    "task": "You are given a list of shirt sizes: ['S', 'M', 'L']. However, 'S' may be preceded by 'X' many times (e.g., 'XS', 'XXS', etc.) to indicate extra small sizes.\nSimilarly, 'L' may be preceded by 'X' many times (e.g., 'XL', 'XXL', etc.) to indicate extra large sizes.\nWrite a Python function that takes a list of such shirt sizes and returns the list sorted from smallest to largest size.",
+    "example_answer": "def sort_shirt_sizes(sizes):\n    \"\"\"\n    Sorts a list of shirt sizes (e.g., 'S', 'M', 'L', 'XS', 'XXL') \n    from smallest to largest.\n    \"\"\"\n    # Helper function to convert size strings to a numeric value for comparison\n    def size_to_value(size):\n        if size == 'M':\n            return 0\n        \n        # Count the number of 'X's to determine magnitude\n        x_count = size.count('X')\n        \n        # For 'S' (Small), more 'X's means a smaller value (more negative)\n        if size.endswith('S'):\n            return -(x_count + 1)\n        \n        # For 'L' (Large), more 'X's means a larger value (more positive)\n        if size.endswith('L'):\n            return x_count + 1\n            \n        return 0\n\n    # Sort the list using the custom key\n    return sorted(sizes, key=size_to_value)",
+    "examples": [
+      [
+        "You are given a list of meeting time intervals, where each interval is a tuple (start_time, end_time) in 24-hour integer format (e.g., (9, 10) means 9:00 to 10:00).\nWrite a Python function that takes this list and returns a condensed list where all overlapping or adjacent meetings are merged into one continuous block.",
+        "from typing import List, Tuple\n\ndef merge_meetings(intervals: List[Tuple[int, int]]) -> List[Tuple[int, int]]:\n    \"\"\"\n    Merges overlapping or adjacent meeting intervals.\n\n    Args:\n        intervals: A list of tuples, where each tuple contains (start_time, end_time).\n\n    Returns:\n        A list of merged interval tuples sorted by start time.\n    \"\"\"\n    if not intervals:\n        return []\n\n    # Sort by start time to process in order\n    intervals.sort(key=lambda x: x[0])\n\n    merged = [intervals[0]]\n\n    for current_start, current_end in intervals[1:]:\n        last_start, last_end = merged[-1]\n\n        # If the current meeting starts before (or when) the last one ends\n        if current_start <= last_end:\n            # Merge them by taking the later of the two end times\n            merged[-1] = (last_start, max(last_end, current_end))\n        else:\n            merged.append((current_start, current_end))\n\n    return merged"
+      ],
+      [
+        "You are given a grid size N (creating an N x N grid) and a list of coordinate tuples [(x, y), ...]. Write a Python function that validates if the list represents a valid 'walk.'\nTo be valid, every step must be exactly one unit away (up, down, left, or right—no diagonals) from the previous step, and all points must stay within the grid boundaries (0 to N-1). Return True or False.",
+        "from typing import List, Tuple\n\ndef is_valid_path(n: int, path: List[Tuple[int, int]]) -> bool:\n    \"\"\"\n    Validates if a sequence of coordinates represents a valid walk on an N x N grid.\n\n    Args:\n        n: The size of the grid (0 to N-1).\n        path: A list of (x, y) coordinates representing the walk.\n\n    Returns:\n        True if the path is valid, False otherwise.\n    \"\"\"\n    if not path:\n        return True\n\n    # Check if the starting point is within bounds\n    start_x, start_y = path[0]\n    if not (0 <= start_x < n and 0 <= start_y < n):\n        return False\n\n    for i in range(len(path) - 1):\n        x1, y1 = path[i]\n        x2, y2 = path[i+1]\n\n        # Check if the NEXT point is out of bounds\n        if not (0 <= x2 < n and 0 <= y2 < n):\n            return False\n\n        # Check Manhattan distance (must be exactly 1 for adjacent moves)\n        dist = abs(x2 - x1) + abs(y2 - y1)\n        if dist != 1:\n            return False\n\n    return True"
+      ],
+      [
+        "You are given a list of transactions. Each transaction is a tuple: ('Name', amount). Positive amounts represent deposits, and negative amounts represent withdrawals.\nWrite a Python function that processes the history and returns a list of names of people who currently have a negative balance, sorted alphabetically.",
+        "from typing import List, Tuple, Dict\n\ndef find_debtors(transactions: List[Tuple[str, int]]) -> List[str]:\n    \"\"\"\n    Identifies names with a negative balance from a transaction history.\n\n    Args:\n        transactions: A list of tuples containing ('Name', amount).\n\n    Returns:\n        A sorted list of names representing individuals with a negative balance.\n    \"\"\"\n    balances: Dict[str, int] = {}\n\n    # Aggregate values\n    for name, amount in transactions:\n        # .get() handles the case where the name isn't in the dict yet\n        balances[name] = balances.get(name, 0) + amount\n\n    # Filter for those with balance < 0\n    debtors = [name for name, balance in balances.items() if balance < 0]\n\n    return sorted(debtors)"
+      ]
+    ],
+    "scoring_instruction": [
+      "Code is valid and runnable",
+      "The code solves the problem",
+      "Arguments are typed and correct",
+      "Return values provided and correct",
+      "Docstring present and correct",
+      "Comments where necessary"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Reading comprehension",
+    "system_prompt": "Read the passage and answer the question based ONLY on the provided text.",
+    "task": "\nText: Photosynthesis is a fundamental biological process employed by photoautotrophic organisms—primarily green plants, algae, and certain groups of bacteria like cyanobacteria—to transform electromagnetic radiation from the sun into stable chemical energy. This energy is not used immediately but is instead stored within the covalent bonds of carbohydrate molecules, most notably glucose and other complex sugars. These organic compounds are synthesized through a series of complex metabolic pathways involving the reduction of carbon dioxide and the oxidation of water, ultimately providing the primary fuel source for the vast majority of life on Earth.\n\nThe mechanism occurs within specialized organelles known as chloroplasts (in eukaryotic plants), where chlorophyll pigments capture specific wavelengths of light to drive the synthesis. The term itself is derived from the Greek roots phōs (meaning \"light\") and sunthesis (meaning \"putting together\" or \"composition\"). This etymology highlights the physical nature of the process: using radiant energy as the \"glue\" to assemble simple inorganic molecules into the complex organic structures that sustain the biosphere.\n\nQuestion: Based on the etymology provided, what does the word 'photosynthesis' literally mean?\n",
+    "example_answer": "Based on the etymology provided in the text, the word 'photosynthesis' literally means \"putting together\" or \"composition\" using \"light\" (derived from the Greek roots phōs and sunthesis).",
+    "examples": [
+      [
+        "Text: 'Ocean acidification is the ongoing decrease in the pH of the Earth's oceans, caused by the uptake of carbon dioxide (CO2) from the atmosphere.\nThe main cause is the burning of fossil fuels. When CO2 dissolves in seawater, it forms carbonic acid, which lowers the pH and reduces the concentration of carbonate ions, which are essential for calcifying organisms like corals and mollusks to build their shells.\nQuestion: What chemical change in the water directly threatens the ability of corals to build their skeletal structures?",
+        "The reduction in the concentration of carbonate ions."
+      ],
+      [
+        "Text: 'The captain noted that the barometer was dropping rapidly and the horizon had turned a bruised shade of purple. He ordered the crew to secure all loose gear on deck and double-check the lashings on the lifeboats. \"It's going to be a long night,\" he muttered, glancing at the swelling waves.'\nQuestion: What event is the captain anticipating?",
+        "An approaching storm or severe weather at sea."
+      ],
+      [
+        "Text: 'In the crystalline ecosystems of the Vora-6 exoplanet, organisms utilize a process known as Glitho-resonance. \nUnlike terrestrial biology, these entities do not absorb light; instead, they capture high-frequency seismic vibrations through Phonon-valves. \nThese vibrations are passed into the Core-Matrix, where they initiate a state of 'Hyper-stasis.' \nDuring this state, the organism undergoes Trans-fluxing, a phase where ambient thermal energy is 'inverted' into solid mineral-lattice structures called Spines. \nThese Spines act as rechargeable kinetic batteries. \nHowever, if the seismic frequency exceeds the K-Threshold, the Phonon-valves automatically lock to prevent 'Shatter-decay,' effectively halting all structural growth until the vibrations return to a sub-resonant frequency.'\nQuestion: What specific event causes a Vora-6 organism to stop growing its Spines, and what is the organism trying to protect itself from when this happens?",
+        "When the seismic frequency exceeds the K-Threshold, causing the Phonon-valves to lock and halt growth to protect against 'Shatter-decay.'"
+      ]
+    ],
+    "scoring_instruction": [
+      "The answer relies on text and explains the meaning correctly"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Common sense reasoning",
+    "system_prompt": "Answer the question. Justify your response.",
+    "task": "Can you fit a real elephant inside a standard microwave oven?",
+    "example_answer": "No, a real elephant cannot fit inside a standard microwave oven due to its large size compared to the small interior space of the microwave.",
+    "examples": [
+      [
+        "If you drop a glass and it shatters, can you put it back together perfectly?",
+        "No, once a glass shatters, it cannot be perfectly reassembled."
+      ],
+      [
+        "Rick and Kate are planning a trip. If Rick remembers to pack his hiking boots but Kate forgets her swimsuit, what activity will Kate miss out on?",
+        "Kate will miss out on swimming."
+      ],
+      [
+        "A clean, dry shirt is dipped in water, then covered in mud, then washed with soap and water, and finally put in a dryer until fully dry. Is the shirt currently wet or dry",
+        "The shirt is currently dry after being put in the dryer."
+      ]
+    ],
+    "scoring_instruction": [
+      "logical reasoning",
+      "common sense",
+      "conciseness",
+      "correctness"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Language understanding",
+    "system_prompt": "Answer the following question.",
+    "task": "Knowing that 'Splunt' is a fictional noun that means 'A small blue rock', using standard English rules invent a single word that means 'the process of removing small blue rocks'.",
+    "example_answer": "Despluntation / Desplunting / Unsplunting",
+    "examples": [
+      [
+        "If you are told, that someone is 'feeling blue', what does that mean?",
+        "It means that the person is feeling sad or depressed."
+      ],
+      [
+        "Which item does not belong in the group: apple, banana, carrot, grape?",
+        "Carrot, because it is a vegetable while the others are fruits."
+      ],
+      [
+        "In this game, \"up\" means \"down\" and \"fast\" means \"slow\". If I say \"Move up fast,\" what should you do?",
+        "Move down slowly."
+      ]
+    ],
+    "scoring_instruction": [
+      "Contains word 'Splunk'",
+      "Is this a single word",
+      "Did the model provided explanation",
+      "Follows English word formation rules"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Factual knowledge",
+    "system_prompt": "Answer the following question with accurate information.",
+    "task": "The chemical element with atomic number 79 is the traditional namesake for which specific wedding anniversary year?",
+    "example_answer": "The chemical element with atomic number 79 is Gold, which is the traditional namesake for the 50th wedding anniversary.",
+    "examples": [
+      [
+        "What gas do plants absorb from the atmosphere for photosynthesis?",
+        "Plants absorb carbon dioxide (CO2) from the atmosphere for photosynthesis."
+      ],
+      [
+        "What is the hardest natural substance on Earth?",
+        "Diamond is the hardest natural substance on Earth."
+      ],
+      [
+        "What is the largest planet in our solar system?",
+        "The largest planet in our solar system is Jupiter."
+      ]
+    ],
+    "scoring_instruction": [
+      "factual accuracy",
+      "completeness",
+      "relevance",
+      "clarity"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Math problem solving",
+    "system_prompt": "Solve the following math problem.",
+    "task": "A train travels at a speed of 120 miles per hour for 2.5 hours. However, due to delays, it has to reduce its speed by 17% for the next hour of the journey. What is the total distance covered by the train?",
+    "example_answer": "First segment (2.5 hours): The train travels at full speed (120 mph).\n    120 mph×1.5 hours=300 miles\n\n    Second segment (1 hour): The speed is reduced by 17%, so the new speed is 120×(1−0.17)=99.6 mph.\n    99.6 mph×1 hour=99.6 miles\n\n    Total Distance:\n    300+99.6=399.6 miles\n\nAnswer: The total distance covered is 399.6 miles.",
+    "examples": [
+      [
+        "A store is having a 22% off sale on all items. If an item originally costs $14 and the customer came with a coupon for $5 what is the final price?",
+        "The sale price of the item is $5.92."
+      ],
+      [
+        "If a rectangle has a length of 10 units and a width of 5 units, what is its area?",
+        "The area of the rectangle is 50 square units."
+      ],
+      [
+        "If you have a triangle with legs measuring 3 units, 7 units and 8 units, what is its area?",
+        "The area of the triangle is 10.39 square units."
+      ]
+    ],
+    "scoring_instruction": [
+      "showing work",
+      "correct calculation",
+      "units"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Ethical reasoning",
+    "system_prompt": "Provide an answer to the following ethical dilemma. Justify your response.",
+    "task": "An engineer discovers their company is illegally dumping toxic waste but has signed a strict Non-Disclosure Agreement (NDA). What is the ethical priority and why?",
+    "example_answer": "The ethical priority is to report the dumping to authorities (whistleblowing). While upholding a contract (NDA) is a moral duty, the obligation to prevent severe harm to public health and the environment takes precedence over corporate loyalty or confidentiality agreements.",
+    "examples": [
+      [
+        "A programmer finds a security vulnerability in a popular software library they use daily. What should they do?",
+        "The programmer should responsibly disclose the vulnerability to the software maintainers so they can fix it and protect users."
+      ],
+      [
+        "A doctor has two patients in need of a life-saving organ transplant but only one available organ. How should the doctor decide who receives the organ?",
+        "The doctor should consider factors such as urgency, likelihood of success, and overall health outcomes to make a fair and ethical decision."
+      ],
+      [
+        "A food critic is offered a free meal by a restaurant they are reviewing. What should they do?",
+        "The critic should disclose the offer to their readers and maintain impartiality in their review to uphold ethical standards."
+      ]
+    ],
+    "scoring_instruction": [
+      "identifying priority",
+      "justification",
+      "ethical consideration",
+      "coherence"
+    ]
+  }
+]
